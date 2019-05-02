@@ -17,7 +17,7 @@ class FilterableProducts extends Component {
       return el.name.toLowerCase().includes(value.toLowerCase());
     });
 
-    if (checked) filtered = filtered(el => el.stocked);
+    if (checked) filtered = filtered.filter(el => el.stocked);
 
     this.setState({
       // searchInput: value
