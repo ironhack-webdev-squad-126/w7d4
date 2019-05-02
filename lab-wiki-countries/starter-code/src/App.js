@@ -12,7 +12,7 @@ class App extends Component {
     countries: []
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     // const response = await axios.get("http://206.189.7.127/countries/");
     // this.setState({
     //   countries: response.data
