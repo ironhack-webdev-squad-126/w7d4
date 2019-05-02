@@ -4,8 +4,27 @@ import Navbar from "./components/Navbar";
 import CountriesList from "./components/CountriesList";
 import CountryDetails from "./components/CountryDetails";
 import "./App.css";
+// import countries from "./countries.json";
+import axios from "axios";
 
 class App extends Component {
+  state = {
+    countries: []
+  };
+
+  async componentDidMount() {
+    // const response = await axios.get("http://206.189.7.127/countries/");
+    // this.setState({
+    //   countries: response.data
+    // });
+
+    axios.get("http://206.189.7.127/countries/").then(response => {
+      this.setState({
+        countries: response.data
+      });
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,7 +37,7 @@ class App extends Component {
                 style={{ maxHeight: "90vh", overflow: "scroll" }}
               >
                 <div className="list-group">
-                  <CountriesList />
+                  <CountriesList countries={this.state.countries} />
                 </div>
               </div>
               <Switch>

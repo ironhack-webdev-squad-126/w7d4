@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import countries from "../countries.json";
 
-const CountriesList = () => {
+const CountriesList = props => {
   return (
     <React.Fragment>
-      {countries.map(el => {
+      {props.countries.map(el => {
         return (
           <Link
             key={el.cca3}
